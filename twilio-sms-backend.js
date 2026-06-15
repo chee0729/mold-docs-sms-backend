@@ -7,11 +7,18 @@ const cors = require('cors');
 
 const app = express();
 
-// Twilio credentials (from your account)
-const accountSid = 'ACd6ee3b630881ed13500d4dafa139c47b';
-const authToken = '82880edfedc87cedca3342a8693b2827';
-const twilioPhoneNumber = '+1(737) 232-4091'; // Your Twilio number
+// Twilio credentials (from environment variables for security)
+const accountSid = process.env.ACCOUNT_SID;
+const authToken = process.env.AUTH_TOKEN;
+const twilioPhoneNumber = process.env.TWILIO_PHONE;
 const mathewPhoneNumber = '+15033124196'; // Mathew's number (formatted)
+
+// Validate that credentials are set
+if (!accountSid || !authToken || !twilioPhoneNumber) {
+  console.error('ERROR: Missing required environment variables!');
+  console.error('Please set: ACCOUNT_SID, AUTH_TOKEN, TWILIO_PHONE');
+  process.exit(1);
+}
 
 // Initialize Twilio client
 const client = twilio(accountSid, authToken);
