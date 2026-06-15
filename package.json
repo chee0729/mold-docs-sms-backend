@@ -1,0 +1,24 @@
+{
+  "name": "mold-docs-sms-backend",
+  "version": "1.0.0",
+  "description": "SMS backend for Mold Docs app using Twilio",
+  "main": "twilio-sms-backend.js",
+  "scripts": {
+    "start": "node twilio-sms-backend.js",
+    "dev": "nodemon twilio-sms-backend.js"
+  },
+  "keywords": ["twilio", "sms", "mold-docs"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "twilio": "^4.0.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": "18"
+  }
+}
